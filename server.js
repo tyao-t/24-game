@@ -1,4 +1,4 @@
-const io = require("socket.io")(3000, {
+const io = require("socket.io")('https://dry-anchorage-98179.herokuapp.com', {
   cors: {
     origin: "*",
   },

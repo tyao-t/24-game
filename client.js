@@ -1,4 +1,4 @@
-const socket = io('http://localhost:3000')
+const socket = io('https://dry-anchorage-98179.herokuapp.com')
 const messageContainer = document.getElementById('message-container')
 const gameInfoContainer = document.getElementById('game-info-container')
 const gameLogContainer = document.getElementById('game-log-container')
