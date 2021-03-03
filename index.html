@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>24 Game</title>
+  <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script defer src="client.js"></script>
+  <audio id="bgm" src="/sounds/bgm.mp3" loop controls>
+  </audio>
+  <style>
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+.row {
+display: flex;
+width: 32.5%;
+height: 32.5%;
+}
+
+/* Create three equal columns that sits next to each other */
+.column {
+flex: 25.00%;
+padding: 10px;
+}
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center">Online Multiplayer 24 Game Simulator</h1>
+  <label class="switch">
+    <input id="enable-sound" type="checkbox">
+    <span class="slider round"></span>
+  </label>
+  <p id="admin-and-spec" style="text-align: center"></p>
+  <div style="text-align: center; display: flex">
+      <div style="flex: 10.00%"></div>
+      <div style="flex: 7.50%"></div>
+      <div style="flex: 52.50%"></div>
+      <div style="flex: 7.50%">
+          <div>Active players:</div>
+      </div>
+      <div id = "active-players" style="flex: 5.00%">
+      </div>
+      <div id = "scores" style="flex: 5.00%">
+      </div>
+      <div style="flex: 12.50%"></div>
+  </div>
+  <h4 id="welcome">Welcome, </h4>
+  <div id="role-title">
+      Your score: <span id="my-score">0</span>
+      <input id="inc" type="button" value="+" />
+      <input id="dec" type="button" value="-" />
+  </div>
+  <div class="row">
+  <div class="column">
+    <img id="card1" src="gray_back.png" alt="Card1" style="width:100%">
+  </div>
+  <div class="column">
+    <img id="card2" src="gray_back.png" alt="Card2" style="width:100%">
+  </div>
+  <div class="column">
+    <img id="card3" src="gray_back.png" alt="Card3" style="width:100%">
+  </div>
+  <div class="column">
+    <img id="card4" src="gray_back.png" alt="Card4" style="width:100%">
+  </div>
+  </div>
+  <div id="count"></div>
+  <div>
+  <input id="startRound" type="button" value="Start Round" style="display: block;"/>
+  <input id="ready" type="button" value="Ready" />
+  <input id="gotIt" type="button" value="Got it!"/>
+  <div style="display: flex">
+      <div id="game-info-container" style="margin-right: 7.5px; flex: 61.8%; border-style: groove; height: 120px; overflow: auto; margin-top: 10px"></div>
+      <div id="game-log-container" style="font-style: italic; flex: 38.2%; border-style: groove; height: 120px; overflow: auto; margin-top: 10px; border-width: 1.5px"></div>
+  </div>
+  <br />
+  <div id="message-container" style="border-style: groove; height: 100px; overflow: auto; border-width: 1.5px"></div>
+  </div>
+</body>
+</html>
