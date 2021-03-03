@@ -1,8 +1,23 @@
-const io = require("socket.io")('https://dry-anchorage-98179.herokuapp.com', {
-  cors: {
-    origin: "*",
-  },
+const express = require("express");
+
+const app = express();
+const http = require("http")
+const server = http.createServer(app);
+
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
 });
+
+const path = __dirname;
+app.use(express.static(path));
+
+app.get("/", (req, res) => {
+  res.sendFile(path + "index.html");
+});
+
+const io = require('socket.io')(server);
 
 const users = {}
 
@@ -88,23 +103,6 @@ io.on('connection', socket => {
       socket.broadcast.emit('set-user-list', users)
   })
 })
-
-
-const express = require("express");
-
-const app = express();
-
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
-
-const path = __dirname;
-app.use(express.static(path));
-
-app.get("/", (req, res) => {
-  res.sendFile(path + "index.html");
-});
 
 var lname, qname, qreac, lstreak;
 
