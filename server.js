@@ -2,7 +2,14 @@ const express = require("express");
 
 const app = express();
 const http = require("http")
-const server = http.createServer(app);
+const server = http.createServer(app, {
+    cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true
+  }
+});
 
 const PORT = process.env.PORT || 4000;
 

@@ -1,4 +1,10 @@
-const socket = io.connect('https://dry-anchorage-98179.herokuapp.com', {secure: true})
+const socket = io.connect('https://dry-anchorage-98179.herokuapp.com', {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd"
+  },
+  secure: true
+})
 const messageContainer = document.getElementById('message-container')
 const gameInfoContainer = document.getElementById('game-info-container')
 const gameLogContainer = document.getElementById('game-log-container')
