@@ -1,4 +1,4 @@
-const socket = io.connect('http://game-24-sim.herokuapp.com/', {
+const socket = io.connect('https://game-24-sim.herokuapp.com/', {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd"
