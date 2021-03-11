@@ -99,6 +99,7 @@ socket.on('count-down', count => {
         countDownSound.play()
         for (let i=1;i<=4;i++) {
             document.getElementById('card'+i).src = 'gray_back.png';
+            if (document.getElementById('text'+i)) document.getElementById('text'+i).remove();
         }
     }
     gameInfoContainer.innerHTML = ""
