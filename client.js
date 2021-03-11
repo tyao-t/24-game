@@ -98,7 +98,6 @@ socket.on('count-down', count => {
     if (count.count == 4) {
         countDownSound.play()
         for (let i=1;i<=4;i++) {
-            //console.log(four[i-1]);
             document.getElementById('card'+i).src = 'gray_back.png';
         }
     }
@@ -114,6 +113,11 @@ socket.on('fourCards', four => {
     for (let i=1;i<=4;i++) {
         //console.log(four[i-1]);
         document.getElementById('card'+i).src = './cards/PNG/' + four[i-1];
+        const textElement = document.createElement('div')
+        textElement.id = 'text'+i;
+        textElement.style.fontWeight = "bold"
+        textElement.innerText = four[i-1].substring(0,1);
+        document.getElementById('c'+i).append(textElement);
     }
 })
 
