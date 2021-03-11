@@ -30,17 +30,21 @@ const users = {}
 
 const nums = ['A','2','3','4','5','6','7','8','9','10','J','Q','K']
 const color = ['H','S', 'D', 'C']
-const cards = []
+/*const cards = []
 for (let i=0;i<13;i++) {
     for (let j=0;j<4;j++) {
         cards.push(nums[i]+color[j]+'.png');
     }
-}
+}*/
 
 function drawFourCards() {
     let four = []
-    let tcards = cards;
-    tcards = cards;
+    let tcards = [];
+    for (let i=0;i<13;i++) {
+        for (let j=0;j<4;j++) {
+            tcards.push(nums[i]+color[j]+'.png');
+        }
+    }
     for (let i=0;i<4;i++) {
         let index = Math.floor(Math.random() * tcards.length)
         let tcard = tcards[index];
