@@ -117,7 +117,7 @@ socket.on('fourCards', four => {
         const textElement = document.createElement('div')
         textElement.id = 'text'+i;
         textElement.style.fontWeight = "bold"
-        textElement.innerText = four[i-1].substring(0,1);
+        textElement.innerText = four[i-1].substring(0, four[i-1].length-5);
         document.getElementById('c'+i).append(textElement);
     }
 })
