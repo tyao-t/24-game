@@ -107,7 +107,7 @@ socket.on('count-down', count => {
 socket.on('fourCards', four => {
     for (let i=1;i<=4;i++) {
         console.log(four[i-1]);
-        document.getElementById('card'+i).src = './cards/PNG' + four[i-1];
+        document.getElementById('card'+i).src = './cards/PNG/' + four[i-1];
     }
 })
 
