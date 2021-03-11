@@ -40,6 +40,7 @@ for (let i=0;i<13;i++) {
 function drawFourCards() {
     let four = []
     let tcards = cards;
+    tcards = cards;
     for (let i=0;i<4;i++) {
         let index = Math.floor(Math.random() * tcards.length)
         let tcard = tcards[index];
@@ -47,7 +48,7 @@ function drawFourCards() {
         console.log(tcard);
         four.push(tcard)
     }
-    console.log(four)
+    console.log(four);
     return four;
 }
 
