@@ -95,7 +95,13 @@ socket.on('ready', name => {
 })
 
 socket.on('count-down', count => {
-    if (count.count == 4) countDownSound.play()
+    if (count.count == 4) {
+        countDownSound.play()
+        for (let i=1;i<=4;i++) {
+            //console.log(four[i-1]);
+            document.getElementById('card'+i).src = 'gray_back.png';
+        }
+    }
     gameInfoContainer.innerHTML = ""
     if (count.count > 0) countContainer.innerText = "Round starting in: " + count.count
     else {
@@ -106,7 +112,7 @@ socket.on('count-down', count => {
 
 socket.on('fourCards', four => {
     for (let i=1;i<=4;i++) {
-        console.log(four[i-1]);
+        //console.log(four[i-1]);
         document.getElementById('card'+i).src = './cards/PNG/' + four[i-1];
     }
 })
