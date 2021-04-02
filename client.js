@@ -1,4 +1,4 @@
-const socket = io.connect('https://mysterious-scrubland-35249.herokuapp.com/', {
+const socket = io.connect('https://game-24.onrender.com/', {
   withCredentials: true,
   extraHeaders: {
     "my-custom-header": "abcd"

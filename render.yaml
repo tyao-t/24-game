@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: game-24
+    env: node
+    plan: free
+    branch: master
+    buildCommand: 'npm install'
+    startCommand: 'node server.js'
+    autoDeploy: true
